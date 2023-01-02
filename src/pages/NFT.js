@@ -1,5 +1,5 @@
 import { myQuery as GetOpNFTWeeklySalesQuery } from "../api/GetOpNFTWeeklySalesQuery";
-import { myQuery as GetOpNFTWeeklyPlatformFeesQuery } from "../api/GetOpNFTWeeklyPlatformFeesQuery";
+
 import { Row, Col, Container, Card } from "reactstrap";
 import GenerateChart from "../components/GenerateChart";
 import { CHARTCOLORS } from "../constants/ChartColors";
@@ -23,17 +23,6 @@ export default function NFT() {
             chartBackgroundColors={[CHARTCOLORS.BLACK, CHARTCOLORS.COLOR1]}
           ></GenerateChart>
         </Col>
-        <Col xs={12} md={6}>
-        <GenerateChart
-            chartQuery={GetOpNFTWeeklyPlatformFeesQuery}
-            chartType="LineBarChart"
-            chartTitle="NFT Platform Fees (USD)"
-            chartFlipYData={true}
-            chartYAxisLabel={["Average Weekly Platform Fees","Weekly Platform Fees"]}
-            chartBackgroundColors={[CHARTCOLORS.BLACK, CHARTCOLORS.COLOR1]}
-          ></GenerateChart>
-        </Col>
-
       </Row>
     </Container>
   );

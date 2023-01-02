@@ -5,7 +5,6 @@ import { CHARTCOLORS } from "../constants/ChartColors";
 import { myQuery as GetBlocksWeeklyQuery } from "../api/GetBlocksWeeklyQuery";
 import { myQuery as GetTransactionsWeeklyQuery } from "../api/GetTransactionsWeeklyQuery";
 import { myQuery as GetProtocolSuccessRateQuery } from "../api/GetProtocolSuccessRateQuery";
-import { myQuery as GetDelegationsQuery } from "../api/GetDelegationsQuery";
 
 export default function Blockchain() {
   return (
@@ -44,15 +43,6 @@ export default function Blockchain() {
             chartFlipYData={true}
             chartYAxisLabel={["Average Success Rate", "Weekly Success Rate"]}
             chartBackgroundColors={[CHARTCOLORS.BLACK, CHARTCOLORS.COLOR1]}
-          ></GenerateChart>
-        </Col>
-        <Col className="rounded" xs={12} md={6}>
-          <GenerateChart
-            chartQuery={GetDelegationsQuery}
-            chartType="TimeBarChart"
-            chartTitle="Delegations Per Week"
-            //chartYAxisLabel={["Transactions Per Week"]}
-            chartBackgroundColors={[CHARTCOLORS.COLOR1]}
           ></GenerateChart>
         </Col>
       </Row>

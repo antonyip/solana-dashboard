@@ -1,10 +1,11 @@
 export const myQuery = `
-  select
+select
   date_trunc('week', block_timestamp::timestamp)::date as day_date,
-  sum(tx_fee) as sum_fee,
-  avg(tx_fee) as avg_fee
+  sum(fee) as sum_fee,
+  avg(fee) as avg_fee
 from
-  optimism.core.fact_transactions
+  solana.core.fact_transactions
+where day_date > '2020-11-01'
 group by
   1
 order by

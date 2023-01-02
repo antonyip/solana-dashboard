@@ -2,19 +2,20 @@ export const myQuery = `
 with
   raw_data as (
     select
-      block_timestamp,
-      LAG(block_timestamp) ignore nulls over (
+      block_timestamp::timestamp as tz_timestamp,
+      LAG(block_timestamp::timestamp) ignore nulls over (
         order by
-          block_number
+          block_id
       ) as prev_timestamp,
-      datediff('seconds', prev_timestamp, block_timestamp) as seconds_diff
+      datediff('seconds', prev_timestamp, block_timestamp::timestamp) as seconds_diff
     from
-      optimism.core.fact_blocks
+      solana.core.fact_blocks
+    where tz_timestamp > '2020-11-01'
     order by
-      block_number asc
+      block_id asc
   )
 select
-  date_trunc('week', block_timestamp)::date,
+  date_trunc('week', tz_timestamp)::date,
   avg(seconds_diff) as avg_blocktime,
   count(1) as num_blocks
 from
