@@ -4,6 +4,7 @@ select
   count(1) as num_txs
 from
   solana.core.fact_transactions
+where block_timestamp > '2022-01-01'
 group by
   1
 order by

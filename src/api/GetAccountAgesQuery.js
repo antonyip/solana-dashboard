@@ -6,6 +6,8 @@ with
       signers
     from
       solana.core.fact_transactions
+    where
+      block_timestamp > '2022-01-01'
     group by
       2
   ),

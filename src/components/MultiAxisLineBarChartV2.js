@@ -68,6 +68,11 @@ export default function MultiAxisLineBarChartV2({
     return template(<EmptyChart />, chartTitle, chartQuery, null, true);
   }
 
+  if (chartDataLoad.error)
+  {
+    return <div>Something went wrong with the query...</div>
+  }
+
   //console.log(chartDataLoad);
 
   // extract the data into arrays

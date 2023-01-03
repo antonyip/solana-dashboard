@@ -5,6 +5,7 @@ select
   avg(fee) as avg_tx_fees_collected_per_tx_in_gwei
 from
   solana.core.fact_transactions
+where block_timestamp > '2022-01-01'
 group by
   1
 order by

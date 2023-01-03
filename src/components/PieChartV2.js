@@ -63,6 +63,11 @@ export default function PieChartV2({
     return template(<EmptyChart />, chartTitle, chartQuery, null, true);
   }
 
+  if (chartDataLoad.error)
+  {
+    return <div>Something went wrong with the query...</div>
+  }
+
   //console.log(chartBackgroundColors)
 
   const yAxisLabel = chartYAxisLabel;

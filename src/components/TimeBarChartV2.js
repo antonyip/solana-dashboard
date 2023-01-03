@@ -59,6 +59,11 @@ export default function TimeBarChartV2({
     return template(<EmptyChart />, chartTitle, chartQuery, null, true);
   }
 
+  if (chartDataLoad.error)
+  {
+    return <div>Something went wrong with the query...</div>
+  }
+
   const yAxisLabel = chartYAxisLabel || [""];
 
   const dataV2 = {

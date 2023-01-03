@@ -8,6 +8,7 @@ avg(success_rate) over (
 ) as avg_success_rate
 from
   solana.core.fact_transactions
+where block_timestamp > '2022-01-01'
 group by
 1
 order by

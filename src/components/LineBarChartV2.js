@@ -69,6 +69,10 @@ export default function LineBarChartV2({
   }
 
   // console.log(chartDataLoad)
+  if (chartDataLoad.error)
+  {
+    return <div>Something went wrong with the query...</div>
+  }
 
   // extract the data into arrays
   const chartXAxisData = []

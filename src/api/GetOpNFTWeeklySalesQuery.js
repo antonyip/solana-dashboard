@@ -5,6 +5,7 @@ select
   avg(weekly_sales_volume) over (order by day_date) as avg_sales_volume
 from
   solana.core.fact_nft_sales
+where block_timestamp > '2022-01-01'
 group by
   1
 order by
